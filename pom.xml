@@ -16,5 +16,6 @@
     <modules>
         <module>mybatis-examples</module>
         <module>spring-examples</module>
+        <module>springmvc-examples</module>
     </modules>
 </project>
