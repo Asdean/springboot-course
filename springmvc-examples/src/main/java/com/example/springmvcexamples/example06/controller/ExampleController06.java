@@ -7,10 +7,7 @@ import com.example.springmvcexamples.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
@@ -38,5 +35,11 @@ public class ExampleController06 {
         // 以指定键值对，置于响应header
         response.addHeader("token", result);
         return ResultVO.success(Map.of());
+    }
+
+    @GetMapping("admin/welcome")
+    public ResultVO getWelcome(@RequestAttribute("role") String role) {
+        log.debug(role);
+        return ResultVO.success(Map.of("msg", "欢迎回来"));
     }
 }
